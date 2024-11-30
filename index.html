@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음식 레시피 검색</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>음식 레시피 검색</h1>
+    <form action="https://www.10000recipe.com/recipe/list.html" method="get">
+        <div class="mx-auto mt-5 search-bar input-group mb-3">
+            <input name="q" type="text" class="form-control rounded-pill" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        </div>
+    </form>
+
+    <div class="mx-auto mx-5 upload-box">
+        <div id="drop-file" class="drag-file">
+          <img src="https://img.icons8.com/pastel-glyph/2x/image-file.png" alt="파일 아이콘" class="image">
+          <p class="message">이미지 파일 드래그</p>
+          <img src="" alt="미리보기 이미지" class="preview">
+            </div>
+                <label class="file-label" for="chooseFile">이미지 선택</label>
+                <input class="file" id="chooseFile" type="file" onchange="dropFile.handleFiles(this.files)" accept="image/png, image/jpeg">
+            </div>
+        </div>
+    </div>
+    <script>
+        function setThumbnail(event) {
+          var reader = new FileReader();
+  
+          reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", event.target.result);
+            document.querySelector("div#image_container").appendChild(img);
+          };
+  
+          reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+</body>
+</html>
